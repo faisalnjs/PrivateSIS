@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PrivateSIS
 // @namespace    https://faisaln.com/scripts/privatesis
-// @version      1.1.0
+// @version      1.2.0
 // @description  Ensure that private and personal information in Ellucian SIS is blurred or disabled. Used during usability testing of the new Ellucian SIS.
 // @author       Faisal N
 // @match        https://sis9.rpi.edu/*
@@ -95,14 +95,17 @@
         }, 500);
     };
     if (window.location.href.includes('commerce.cashnet.com')) {
-        setInterval(() => {
-            [...document.querySelectorAll('*')].forEach(item => {
-                item.setAttribute('tabindex', '-1');
-            });
-        }, 500);
-        if (window.location.href.split('commerce.cashnet.com/cashnetg/static/epayment/RPIpay/overview')[window.location.href.split('commerce.cashnet.com/cashnetg/static/epayment/RPIpay/overview').length - 1] !== '') {
-            window.location.href = 'https://commerce.cashnet.com/cashnetg/static/epayment/RPIpay/overview';
+        if (window.location.href.includes('/login')) {
+            document.documentElement.classList.add('isEnabled');
+        } else {
+            setInterval(() => {
+                [...document.querySelectorAll('*')].forEach(item => {
+                    item.setAttribute('tabindex', '-1');
+                });
+            }, 500);
+            if (window.location.href.split('commerce.cashnet.com/cashnetg/static/epayment/RPIpay/overview')[window.location.href.split('commerce.cashnet.com/cashnetg/static/epayment/RPIpay/overview').length - 1] !== '') {
+                window.location.href = 'https://commerce.cashnet.com/cashnetg/static/epayment/RPIpay/overview';
+            };
         };
-        if (window.location.href.includes('/login')) document.documentElement.classList.add('isEnabled');
     };
 })();
