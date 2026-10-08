@@ -9,39 +9,41 @@
 @-moz-document domain("sis9.rpi.edu"), domain("experience.elluciancloud.com"), domain("degreeworksprd.rpi.edu"), domain("degreeworksprd.rpi.edu:8708") {
 	.MuiAvatar-root,
 	.MuiPaper-root:has([title="Degree Works"]),
-    .student-p-other-navigation-list-default:not(.isEnabled),
-    .landing-path:not(.landingPreRegisterActivities):not(.landingBrowseClasses),
-    .print-button {
+	.student-p-other-navigation-list-default:not(.isEnabled),
+	.landing-path:not(.landingPreRegisterActivities):not(.landingBrowseClasses),
+	.print-button {
 		user-select: none !important;
 		pointer-events: none !important;
 	}
 
 	tile-box:not(.notBlurred),
-    .student-info-photo,
-    .notes-container,
-    .cirriculum-container,
-    .profile-item:not(.dropdown),
-    #title-panel h1:not(.notBlurred),
-    .account-summary-inner-body > .ng-scope {
+	.student-info-photo,
+	.notes-container,
+	.cirriculum-container,
+	.profile-item:not(.dropdown),
+	#title-panel h1:not(.notBlurred),
+	.account-summary-inner-body > .ng-scope {
 		filter: blur(5px) !important;
 		user-select: none !important;
 		pointer-events: none !important;
 	}
 
-    #overall_academic_standing_li {
-        display: none !important;
-    }
+	#overall_academic_standing_li {
+		display: none !important;
+	}
 }
 
 @-moz-document domain("commerce.cashnet.com") {
-	html, body, * {
+	html:not(.isEnabled),
+	html:not(.isEnabled) body,
+	html:not(.isEnabled) * {
 		user-select: none !important;
 		pointer-events: none !important;
 	}
 
-    .account-summary-inner-body > .ng-scope,
-    .balance__amount,
-    .overview-body-container {
+	.account-summary-inner-body > .ng-scope,
+	.balance__amount,
+	.overview-body-container {
 		filter: blur(5px) !important;
 		user-select: none !important;
 		pointer-events: none !important;

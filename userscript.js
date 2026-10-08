@@ -103,5 +103,6 @@
         if (window.location.href.split('commerce.cashnet.com/cashnetg/static/epayment/RPIpay/overview')[window.location.href.split('commerce.cashnet.com/cashnetg/static/epayment/RPIpay/overview').length - 1] !== '') {
             window.location.href = 'https://commerce.cashnet.com/cashnetg/static/epayment/RPIpay/overview';
         };
+        if (window.location.href.includes('/login')) document.documentElement.classList.add('isEnabled');
     };
 })();
