@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PrivateSIS
 // @namespace    https://faisaln.com/scripts/privatesis
-// @version      1.2.0
+// @version      1.3.0
 // @description  Ensure that private and personal information in Ellucian SIS is blurred or disabled. Used during usability testing of the new Ellucian SIS.
 // @author       Faisal N
 // @match        https://sis9.rpi.edu/*
@@ -48,7 +48,9 @@
         }
 
         @-moz-document domain("commerce.cashnet.com") {
-            html, body, * {
+            html:not(.isEnabled),
+            html:not(.isEnabled) body,
+            html:not(.isEnabled) * {
                 user-select: none !important;
                 pointer-events: none !important;
             }
@@ -103,9 +105,9 @@
                     item.setAttribute('tabindex', '-1');
                 });
             }, 500);
-            if (window.location.href.split('commerce.cashnet.com/cashnetg/static/epayment/RPIpay/overview')[window.location.href.split('commerce.cashnet.com/cashnetg/static/epayment/RPIpay/overview').length - 1] !== '') {
-                window.location.href = 'https://commerce.cashnet.com/cashnetg/static/epayment/RPIpay/overview';
-            };
+            // if (window.location.href.split('commerce.cashnet.com/cashnetg/static/epayment/RPIpay/overview')[window.location.href.split('commerce.cashnet.com/cashnetg/static/epayment/RPIpay/overview').length - 1] !== '') {
+            //     window.location.href = 'https://commerce.cashnet.com/cashnetg/static/epayment/RPIpay/overview';
+            // };
         };
     };
 })();
